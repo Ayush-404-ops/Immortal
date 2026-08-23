@@ -42,6 +42,11 @@
     color: #fff;
   }
 
+  body.custom-cursor-active,
+  body.custom-cursor-active * {
+    cursor: none !important;
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-signal);
     outline-offset: 3px;

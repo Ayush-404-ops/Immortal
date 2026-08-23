@@ -3,11 +3,13 @@ import { ArrowDown, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./icons";
 import HeroBackground from "./HeroBackground";
 import StatusBar from "./StatusBar";
+import OrbitNav from "./OrbitNav";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16">
       <HeroBackground />
+      <OrbitNav />
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-3xl">
         <motion.div
