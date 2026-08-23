@@ -18,11 +18,10 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
 
     let raf: number;
     const start = performance.now();
-    const DURATION = 1100;
+    const DURATION = 1000;
 
     function tick(now: number) {
       const t = Math.min(1, (now - start) / DURATION);
-      // ease-out for a snappier finish
       const eased = 1 - Math.pow(1 - t, 3);
       setPct(Math.round(eased * 100));
       if (t < 1) {
@@ -31,7 +30,7 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
         setTimeout(() => {
           setDone(true);
           onDone();
-        }, 250);
+        }, 200);
       }
     }
     raf = requestAnimationFrame(tick);
@@ -44,18 +43,13 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[100] bg-void flex items-end sm:items-center justify-center pb-16 sm:pb-0"
+          transition={{ duration: 0.45 }}
+          className="fixed inset-0 z-[100] bg-ink flex items-center justify-center"
         >
-          <div className="flex flex-col items-center gap-4">
-            <span className="font-mono text-5xl sm:text-6xl text-white tabular-nums">
-              {pct}
-              <span className="text-signal">%</span>
-            </span>
-            <span className="font-mono text-[10px] tracking-[0.3em] text-fog-dim uppercase">
-              Initializing systems
-            </span>
-          </div>
+          <span className="font-mono text-3xl sm:text-4xl text-paper tabular-nums">
+            {pct}
+            <span className="text-signal">%</span>
+          </span>
         </motion.div>
       )}
     </AnimatePresence>
