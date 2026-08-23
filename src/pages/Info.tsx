@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import ProcessSection from "../components/ProcessSection";
+import FAQAccordion from "../components/FAQAccordion";
 
 const toolGroups = [
   { label: "Languages", items: ["JavaScript / TypeScript", "Python"] },
@@ -77,6 +79,14 @@ export default function Info() {
           ))}
         </div>
       </motion.div>
+
+      <div className="mt-20 pt-16 border-t border-line">
+        <ProcessSection />
+      </div>
+
+      <div className="mt-20 pt-16 border-t border-line">
+        <FAQAccordion />
+      </div>
     </div>
   );
 }
