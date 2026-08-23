@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
+import CursorRevealOverlay from "./components/CursorRevealOverlay";
 import Home from "./pages/Home";
 import Info from "./pages/Info";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -36,9 +37,10 @@ function App() {
     <BrowserRouter>
       <div className="bg-ink min-h-screen flex flex-col">
         <Preloader onDone={() => setLoaded(true)} />
+        <CursorRevealOverlay />
         <div
           style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.5s ease" }}
-          className="flex flex-col min-h-screen"
+          className="relative z-10 flex flex-col min-h-screen"
         >
           <Header />
           <main className="flex-1">
